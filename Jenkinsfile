@@ -20,7 +20,7 @@ pipeline {
             }
         }
     }
-}
+
 
 
 stage('Testing Environment') {
@@ -38,3 +38,4 @@ stage('Testing Environment') {
                 echo "hello"
             }
         }
+}
