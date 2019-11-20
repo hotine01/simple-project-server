@@ -1,5 +1,6 @@
 pipeline {
-    agent any    stages {
+    agent any   
+	 stages {
         stage('Test') {
             steps {
                    echo "Test"
@@ -8,14 +9,15 @@ pipeline {
         stage('Build') {
             steps {
                     sh 'mvn package -DskipTests'
-                    sh 'docker build -t="jaymacdocker/procedures-project-server:latest" .'
+                    sh 'docker build -t="hotine01/simple-project-server:latest" .'
                 }
             }
         stage('Deploy') {
             steps {
-                    sh 'docker push jaymacdocker/procedures-project-server:latest'
+                    sh 'docker push hotine01/simple-project-server:latest'
             }
-        }        stage('Testing Environment') {
+        }   
+     stage('Testing Environment') {
             steps {
                 echo "hello"
             }
