@@ -1,26 +1,21 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Testing Environment') {
+    agent any    stages {
+        stage('Test') {
             steps {
-                    sh 'mvn test -Dtest=ControllerAndServiceSuite'
-		sh 'mvn test -Dtest=IntegrationSuite'
+                   echo "Test"
                 }
             }
         stage('Build') {
             steps {
-		sh 'mvn package -DskipTests'
-		    sh 'docker build -t="hotine01/simple-project-server:latest" .'
+                    sh 'mvn package -DskipTests'
+                    sh 'docker build -t="jaymacdocker/procedures-project-server:latest" .'
                 }
             }
         stage('Deploy') {
             steps {
-		sh 'docker push  hotine01/simple-project-server:latest'
+                    sh 'docker push jaymacdocker/procedures-project-server:latest'
             }
-        }
-
-stage('Testing Environment') {
+        }        stage('Testing Environment') {
             steps {
                 echo "hello"
             }
@@ -35,6 +30,5 @@ stage('Testing Environment') {
                 echo "hello"
             }
         }
+    }
 }
-   }
-
