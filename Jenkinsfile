@@ -19,13 +19,13 @@ pipeline {
             steps {
                 echo "Build"
                 sh 'mvn package -DskipTests'
-                sh 'docker build -t="hotine01/simple-project-server:latest" .'
+                sh 'docker build -t="hotine01/simple-project-server:${VERSION}" .'
             }
         }
         stage('Deploy') {
             steps {
                 echo "Deploy"
-                sh 'docker push hotine01/simple-project-server:latest'
+                sh 'docker push hotine01/simple-project-server:${VERSION}'
             }
         }
         stage('Testing Environment') {
