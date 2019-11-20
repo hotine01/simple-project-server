@@ -31,6 +31,9 @@ pipeline {
 		env.BRANCH_NAME=="developer"
 		}
             }
+	steps{	
+		echo "hello"
+		}
         }
         stage('Production') {
             when{
