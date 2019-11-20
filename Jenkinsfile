@@ -29,7 +29,14 @@ pipeline {
         }
       stage('Production') {
             steps {
-                echo "hello"
+               when {
+		expression {
+		env.feature-addfail=='master'
+		}
+			}
+	steps{
+		echo 'production'
+	}
             }
         }
     }
