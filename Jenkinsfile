@@ -19,9 +19,6 @@ pipeline {
 		sh 'docker push  hotine01/simple-project-server:latest'
             }
         }
-    }
-
-
 
 stage('Testing Environment') {
             steps {
@@ -39,3 +36,5 @@ stage('Testing Environment') {
             }
         }
 }
+   }
+
