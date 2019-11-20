@@ -32,7 +32,7 @@ pipeline {
                 stage('Production') {
                         when{
                             expression{
-                                env.featurebranch3=="master"
+                                env.feature-addfail=="master"
                             }
                         }
                         steps {
