@@ -1,5 +1,6 @@
 pipeline {
-    agent any    stages {
+    agent any   
+	 stages {
                 stage('Test Environment') {
                     steps {
                             sh 'mvn test -Dtest=ControllerAndServiceSuite'
@@ -32,11 +33,12 @@ pipeline {
                 stage('Production') {
                         when{
                             expression{
-                                env.feature-addfail=="master"
+                                env.BRANCH_NAME=="master"
                             }
                         }
                         steps {
                             echo "hello"
                         }
-                }    }
+                }  
+	  }
 }
