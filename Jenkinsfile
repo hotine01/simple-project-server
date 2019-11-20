@@ -26,8 +26,10 @@ pipeline {
             }
         }
         stage('Staging') {
-            steps {
-                echo "hello"
+            when {
+		expression{
+		env.BRANCH_NAME=="developer"
+		}
             }
         }
         stage('Production') {
